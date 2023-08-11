@@ -12,10 +12,10 @@ user_params = {
 
 # response = requests.post(url=pixela_endpoint, json=user_params)
 # print(response.text)
-
+GRAPHID = 'davidgraphid'
 graph_endpoint = f'{pixela_endpoint}/{USERNAME}/graphs'
 graph_params = {
-    'id':'davidgraphid',
+    'id':GRAPHID,
     'name':'Coding Streak',
     'unit':'Hours',
     'type':'float',
@@ -25,5 +25,11 @@ graph_params = {
 headers = {
     'X-USER-TOKEN':TOKEN
 }
-response = requests.post(url=graph_endpoint, json=graph_params, headers=headers)
-print(response.text)
+# response = requests.post(url=graph_endpoint, json=graph_params, headers=headers)
+# print(response.text)
+
+graph_edit = f'{pixela_endpoint}/{USERNAME}/graphs/{GRAPHID}'
+
+graph_edit_params = {
+    
+}
