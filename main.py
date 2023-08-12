@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 TOKEN = 'wowdavidsu'
 USERNAME = 'davidsu'
 pixela_endpoint = 'https://pixe.la/v1/users'
@@ -30,6 +31,19 @@ headers = {
 
 graph_edit = f'{pixela_endpoint}/{USERNAME}/graphs/{GRAPHID}'
 
+today = datetime.now()
+
 graph_edit_params = {
-    
+    'date': today.strftime('%Y%m%d'),
+    'quantity':'4',
 }
+
+# response = requests.post(url=graph_edit, json = graph_edit_params, headers = headers)
+
+# print(response.text)
+graph_change = {
+    'quantity':'6',
+}
+response = requests.put(url = graph_edit+f'/{graph_edit_params["date"]}', json= graph_change, headers = headers)
+
+print(response.text)
